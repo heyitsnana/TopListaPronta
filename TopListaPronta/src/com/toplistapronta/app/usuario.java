@@ -1,29 +1,37 @@
 package com.toplistapronta.app;
+package TopLista;
 
-public class usuario {
+import java.util.ArrayList;
+import java.util.List;
 
-	
-	private String login;
+public class Usuario {
+    private String login;
     private String senha;
-    private boolean isAdmin;
+    private boolean admin;
+    private StatusConta status = StatusConta.ATIVA;
 
-    public usuario(String login, String senha, boolean isAdmin) {
+   
+    private List<Item> itensComprados = new ArrayList<>();
+
+    public enum StatusConta { ATIVA, DESATIVADA, EXCLUIDA }
+
+    public Usuario(String login, String senha, boolean admin) {
         this.login = login;
         this.senha = senha;
-        this.isAdmin = isAdmin;
+        this.admin = admin;
     }
 
-    public String getLogin() {
-        return login;
+    public String getLogin() { return login; }
+    public String getSenha() { return senha; }
+    public boolean isAdmin() { return admin; }
+    public StatusConta getStatus() { return status; }
+    public void setStatus(StatusConta status) { this.status = status; }
+
+    public List<Item> getItensComprados() { return itensComprados; }
+    public void addItemComprado(Item item) { itensComprados.add(item); }
+
+    @Override
+    public String toString() {
+        return login + (admin ? " (Admin)" : "");
     }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-
 }
