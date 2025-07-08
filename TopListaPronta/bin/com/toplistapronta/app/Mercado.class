@@ -1,0 +1,77 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package TopLista;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Mercado {
+   private String nome;
+   private String cep;
+   private String complemento;
+   private List<Localizacao> localizacoes;
+
+   public Mercado(String nome, String cep, String complemento) {
+      this.nome = nome;
+      this.cep = cep;
+      this.complemento = complemento;
+      this.localizacoes = new ArrayList();
+   }
+
+   public String getNome() {
+      return this.nome;
+   }
+
+   public void setNome(String nome) {
+      this.nome = nome;
+   }
+
+   public String getCep() {
+      return this.cep;
+   }
+
+   public void setCep(String cep) {
+      this.cep = cep;
+   }
+
+   public String getComplemento() {
+      return this.complemento;
+   }
+
+   public void setComplemento(String complemento) {
+      this.complemento = complemento;
+   }
+
+   public List<Localizacao> getLocalizacoes() {
+      return this.localizacoes;
+   }
+
+   public void addLocalizacao(String endereco, String numero, double latitude, double longitude) {
+      this.localizacoes.add(new Localizacao(endereco, numero, latitude, longitude));
+   }
+
+   public void updateLocalizacao(int index, String endereco, String numero, double latitude, double longitude) {
+      Localizacao loc = (Localizacao)this.localizacoes.get(index);
+      loc.setEndereco(endereco);
+      loc.setNumero(numero);
+      loc.setLatitude(latitude);
+      loc.setLongitude(longitude);
+   }
+
+   public void removeLocalizacao(int index) {
+      this.localizacoes.remove(index);
+   }
+
+   public String toString() {
+      StringBuilder sb = new StringBuilder();
+      sb.append("Mercado: ").append(this.nome).append("\n");
+      Iterator var3 = this.localizacoes.iterator();
+
+      while(var3.hasNext()) {
+         Localizacao loc = (Localizacao)var3.next();
+         sb.append("Endereço: ").append(loc.getEndereco()).append(" | Nº: ").append(loc.getNumero()).append(" | Latitude: ").append(loc.getLatitude()).append(" | Longitude: ").append(loc.getLongitude()).append("\n");
+      }
+
+      return sb.toString();
+   }
+}
