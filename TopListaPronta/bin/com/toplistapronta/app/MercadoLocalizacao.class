@@ -1,1 +1,49 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package TopLista;
+
+public class Mercado$Localizacao {
+   private String endereco;
+   private String numero;
+   private double latitude;
+   private double longitude;
+
+   public Mercado$Localizacao(String endereco, String numero, double latitude, double longitude) {
+      this.endereco = endereco;
+      this.numero = numero;
+      this.latitude = latitude;
+      this.longitude = longitude;
+   }
+
+   public String getEndereco() {
+      return this.endereco;
+   }
+
+   public void setEndereco(String endereco) {
+      this.endereco = endereco;
+   }
+
+   public String getNumero() {
+      return this.numero;
+   }
+
+   public void setNumero(String numero) {
+      this.numero = numero;
+   }
+
+   public double getLatitude() {
+      return this.latitude;
+   }
+
+   public void setLatitude(double latitude) {
+      this.latitude = latitude;
+   }
+
+   public double getLongitude() {
+      return this.longitude;
+   }
+
+   public void setLongitude(double longitude) {
+      this.longitude = longitude;
+   }
+}
 
