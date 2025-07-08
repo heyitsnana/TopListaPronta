@@ -1,0 +1,53 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package TopLista;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Usuario {
+   private String login;
+   private String senha;
+   private boolean admin;
+   private StatusConta status;
+   private List<Item> itensComprados;
+
+   public Usuario(String login, String senha, boolean admin) {
+      this.status = TopLista.Usuario.StatusConta.ATIVA;
+      this.itensComprados = new ArrayList();
+      this.login = login;
+      this.senha = senha;
+      this.admin = admin;
+   }
+
+   public String getLogin() {
+      return this.login;
+   }
+
+   public String getSenha() {
+      return this.senha;
+   }
+
+   public boolean isAdmin() {
+      return this.admin;
+   }
+
+   public StatusConta getStatus() {
+      return this.status;
+   }
+
+   public void setStatus(StatusConta status) {
+      this.status = status;
+   }
+
+   public List<Item> getItensComprados() {
+      return this.itensComprados;
+   }
+
+   public void addItemComprado(Item item) {
+      this.itensComprados.add(item);
+   }
+
+   public String toString() {
+      return this.login + (this.admin ? " (Admin)" : "");
+   }
+}
