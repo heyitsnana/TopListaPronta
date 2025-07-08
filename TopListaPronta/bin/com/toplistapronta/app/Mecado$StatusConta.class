@@ -1,0 +1,10 @@
+package TopLista;
+
+public enum Usuario$StatusConta {
+   ATIVA,
+   DESATIVADA,
+   EXCLUIDA;
+
+   private Usuario$StatusConta() {
+   }
+}
