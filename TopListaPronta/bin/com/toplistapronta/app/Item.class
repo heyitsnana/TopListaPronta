@@ -1,0 +1,86 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package TopLista;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Item {
+   private String nome;
+   private int quantidade;
+   private double preco;
+   private String descricao;
+   private LocalDate validade;
+   private static List<Item> historicoCompras = new ArrayList();
+
+   public Item(String nome, int quantidade, double preco, String descricao, LocalDate validade) {
+      this.nome = nome;
+      this.quantidade = quantidade;
+      this.preco = preco;
+      this.descricao = descricao;
+      this.validade = validade;
+      historicoCompras.add(this);
+   }
+
+   public String getNome() {
+      return this.nome;
+   }
+
+   public void setNome(String nome) {
+      this.nome = nome;
+   }
+
+   public int getQuantidade() {
+      return this.quantidade;
+   }
+
+   public void setQuantidade(int quantidade) {
+      this.quantidade = quantidade;
+   }
+
+   public double getPreco() {
+      return this.preco;
+   }
+
+   public void setPreco(double preco) {
+      this.preco = preco;
+   }
+
+   public String getDescricao() {
+      return this.descricao;
+   }
+
+   public void setDescricao(String descricao) {
+      this.descricao = descricao;
+   }
+
+   public LocalDate getValidade() {
+      return this.validade;
+   }
+
+   public void setValidade(LocalDate validade) {
+      this.validade = validade;
+   }
+
+   public static List<Item> recomendarItens() {
+      List<Item> recomendados = new ArrayList();
+      Iterator var2 = historicoCompras.iterator();
+
+      while(var2.hasNext()) {
+         Item item = (Item)var2.next();
+         boolean jaExiste = recomendados.stream().anyMatch((i) -> {
+            return i.getNome().equalsIgnoreCase(item.getNome());
+         });
+         if (!jaExiste) {
+            recomendados.add(item);
+         }
+      }
+
+      return recomendados;
+   }
+
+   public String toString() {
+      return String.format("Item: %s | Quantidade: %d | Preço: R$%.2f | Validade: %s | Descrição: %s", this.nome, this.quantidade, this.preco, this.validade, this.descricao);
+   }
+}
